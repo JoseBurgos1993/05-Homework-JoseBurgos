@@ -3,10 +3,28 @@
 
 $("document").ready(function(){
 
-    var savedText = ["","","","","","","","","","","","","","","","","","","","","","","",""]; // 24 items
+    var savedText = ["","","","","","","","","","",""]; // 24 items
 
     $("#currentDay").text(moment().format("MMMM Do YYYY"));
 
+    function colorBlocks(){
+        const hour = moment().get('hour');
+        let index = 8;
+        $(".row").each(function(){
+            let block = $(this).find("textarea");
+            if(index < hour){
+                block.addClass("past");
+            } else if(index == hour){
+                block.addClass("present");
+            } else{
+                block.addClass("future");
+            }
+            index++;
+        });
+    }
+    colorBlocks();
+
+    /*
     function createBlocks(){
         // Creates all 24 blocks
         const container = $(".container");
@@ -75,7 +93,9 @@ $("document").ready(function(){
 
     // Colors the blocks \\
     function colorBlocks(index){
-        const hour = parseInt(moment().get('hour'));
+        //const hour = parseInt(moment().get('hour'));
+        const hour = moment().get('hour');
+        console.log(hour);
         if(index < hour){
             return "lightgray"; // PAST
         } else if(index == hour){
@@ -116,4 +136,5 @@ $("document").ready(function(){
         localStorage.setItem("savedText" + index, savedText[index]);
 
     });
+    */
 });
