@@ -7,11 +7,27 @@ $("document").ready(function(){
 
     $("#currentDay").text(moment().format("MMMM Do YYYY"));
 
-    function colorBlocks(){
+
+
+
+
+    // Read and write from local storage \\
+    function readData(){
+        for(let i = 0; i < 11; i++){
+            let temp = localStorage.getItem("savedText" + (i+8));
+            if(temp !== null){
+                savedText[i] = temp;
+            }
+        }
+    }
+
+    // Colors and writes to blocks
+    function setupBlocks(){
         const hour = moment().get('hour');
         let index = 8;
         $(".row").each(function(){
             let block = $(this).find("textarea");
+
             if(index < hour){
                 block.addClass("past");
             } else if(index == hour){
@@ -19,10 +35,25 @@ $("document").ready(function(){
             } else{
                 block.addClass("future");
             }
+
+            block.val(savedText[index-8]); // Writes save data into the text area
             index++;
         });
     }
-    colorBlocks();
+
+
+    // Save Button Event Listener \\
+    $(".saveBtn").on("click", function(){
+        let index = 8;
+        $(".row").each(function(){
+            let block = $(this).find("textarea");
+            localStorage.setItem("savedText" + index, block.val());
+            index++;
+        });
+    });
+
+    readData();
+    setupBlocks();
 
     /*
     function createBlocks(){
