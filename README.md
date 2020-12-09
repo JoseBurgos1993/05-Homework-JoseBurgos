@@ -1,8 +1,8 @@
-# 05-Homework-JoseBurgos
+# Work-Day-Scheduler
 
-Here is a link to the deployed webpage https://joseburgos1993.github.io/05-Homework-JoseBurgos/Develop/.
+Here is a link to the deployed webpage https://joseburgos1993.github.io/Work-Day-Scheduler/Develop/.
 
-This is my github repository https://github.com/JoseBurgos1993/05-Homework-JoseBurgos.
+This is my github repository https://github.com/JoseBurgos1993/Work-Day-Scheduler.
 
 This is a screenshot of my webpage: <img width="955" alt="screenshot" src="https://user-images.githubusercontent.com/57579330/85183274-21601580-b259-11ea-8a6f-5d21af09ec38.png">
 
